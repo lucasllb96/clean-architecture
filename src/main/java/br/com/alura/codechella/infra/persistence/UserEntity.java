@@ -1,4 +1,4 @@
-package br.com.alura.codechella.naousar.model;
+package br.com.alura.codechella.infra.persistence;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,14 +10,24 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cpf;
-    private String nome;
-    private LocalDate nascimento;
+    private String name;
+    private LocalDate dateOfBorn;
     private String email;
+
+    public UserEntity() {
+    }
+
+    public UserEntity(String cpf, String name, LocalDate dateOfBorn, String email) {
+        this.cpf = cpf;
+        this.name = name;
+        this.dateOfBorn = dateOfBorn;
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
@@ -35,20 +45,20 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public LocalDate getNascimento() {
-        return nascimento;
+    public LocalDate getDateOfBorn() {
+        return dateOfBorn;
     }
 
-    public void setNascimento(LocalDate nascimento) {
-        this.nascimento = nascimento;
+    public void setDateOfBorn(LocalDate dateOfBorn) {
+        this.dateOfBorn = dateOfBorn;
     }
 
     public String getEmail() {
