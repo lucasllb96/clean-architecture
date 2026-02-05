@@ -30,4 +30,12 @@ public class UserRepositoryJpa implements br.com.alura.codechella.application.ga
         //return repository.findAll();
         return null;
     }
+
+    @Override
+    public User updateUser(String cpf, String email) {
+        UserEntity entity = repository.findByCpf(cpf);
+        entity.setEmail(email);
+        repository.save(entity);
+        return mapper.toDomain(entity);
+    }
 }

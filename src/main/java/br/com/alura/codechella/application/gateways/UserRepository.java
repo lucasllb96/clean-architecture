@@ -10,4 +10,5 @@ public interface UserRepository {
 
     List<User> listAll();
 
+    User updateUser(String cpf, String email);
 }
