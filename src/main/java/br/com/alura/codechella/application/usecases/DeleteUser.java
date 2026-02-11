@@ -3,15 +3,18 @@ package br.com.alura.codechella.application.usecases;
 import br.com.alura.codechella.application.gateways.UserRepository;
 import br.com.alura.codechella.domain.entities.usuario.User;
 
-public class UpdateUser {
+import java.util.List;
 
-    private UserRepository repository;
+public class DeleteUser {
 
-    public UpdateUser(UserRepository repository) {
+    private final UserRepository repository;
+
+    public DeleteUser(UserRepository repository) {
         this.repository = repository;
     }
 
-    public User updateUser(User user) {
-        return repository.updateUserEmail(user.getCpf(), user.getEmail());
+    public void deleteUser(String cpf) {
+        this.repository.deleteUser(cpf);
     }
+
 }

@@ -10,5 +10,7 @@ public interface UserRepository {
 
     List<User> listAll();
 
-    User updateUser(String cpf, String email);
+    User updateUserEmail(String cpf, String email);
+
+    void deleteUser(String cpf);
 }
